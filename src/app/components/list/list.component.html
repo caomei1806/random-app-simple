@@ -1,0 +1,18 @@
+<div class="list-group mt-5">
+	<app-new
+		(addNew)="addElementToList($event)"
+		class="mb-5"
+	></app-new>
+	<app-element
+		*ngFor="let element of randomList,index as index"
+		[ngClass]="{'list-group-item-primary': index==chosenElement}"
+		[index]="index"
+		[name]="element"
+		(deleteElement)="deleteElement($event)"
+		class="list-group-item"
+	></app-element>
+	<button
+		class="bt btn-primary btn-lg"
+		(click)="randomizeElement()"
+	>Randomize</button>
+</div>
